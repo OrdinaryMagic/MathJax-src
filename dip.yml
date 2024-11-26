@@ -1,0 +1,14 @@
+version: '7.1'
+
+compose:
+  files:
+    - .dockerdev/compose.yml
+  project_name: mathjax
+
+interaction:
+   # Run a Rails container without any dependent services (useful for non-Rails scripts)
+  bash:
+    description: Run an arbitrary script within a container (or open a shell without deps)
+    service: web
+    command: /bin/bash
+    compose_run_options: [ no-deps ]
